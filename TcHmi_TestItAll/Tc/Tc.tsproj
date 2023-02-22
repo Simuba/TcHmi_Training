@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35">
+	<Translations>
+		<Text TxtId="Hello i am a message">
+			<Text LcId="1031"><![CDATA[Hallo ich bin eine Meldung]]></Text>
+		</Text>
+	</Translations>
+	<DataTypes>
+		<DataType>
+			<Name GUID="{13167070-13B9-44EF-85D0-ED75B6FEA492}" PersistentType="true">MyEvents</Name>
+			<DisplayName TxtId=""><![CDATA[MyEvents_DisplayText]]></DisplayName>
+			<EventId>
+				<Name Id="1">MyFirstMsg</Name>
+				<DisplayName TxtId=""><![CDATA[Hello i am a message]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="2">MyFirstAlarm</Name>
+				<DisplayName TxtId=""><![CDATA[Hello i am an alarrm from {0}]]></DisplayName>
+				<Severity>Error</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{A777C8D0-5FEE-4C3A-9D3E-026BD65C5D51}"/>
+				<Hide GUID="{5CABDFE0-6FD4-4A51-B43B-D75FD5D7787E}"/>
+				<Hide GUID="{1398ECF3-6D59-44E0-AA88-BF10776D4C51}"/>
+				<Hide GUID="{94275A3A-2446-43EF-80F5-29E41C822D18}"/>
+				<Hide GUID="{8AEB4230-2514-4327-9887-F2DBB98EDF9D}"/>
+				<Hide GUID="{7B4A3041-F126-4F56-B4AD-57E114931A3D}"/>
+			</Hides>
+		</DataType>
+	</DataTypes>
+	<Project ProjectGUID="{DD34C6C3-3972-4F6B-8005-EFAEFA278A5B}" Target64Bit="true" ShowHideConfigurations="#x106">
+		<System>
+			<Settings MaxCpus="8" NonWinCpus="1">
+				<Cpu CpuId="7"/>
+			</Settings>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{09DF5873-04B7-4C83-8A5F-B10D4A704C78}" Name="Plc" PrjFilePath="Plc\Plc.plcproj" TmcFilePath="Plc\Plc.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{2C0BEE2A-D1DA-4BE5-9AEC-C75FAC734A54}">
+					<Name>Plc Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Contexts>
+						<Context>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+	</Project>
+</TcSmProject>

@@ -1,0 +1,111 @@
+﻿<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Content" data-tchmi-min-width="100" data-tchmi-min-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-min-height="100" data-tchmi-min-height-unit="%">
+  <div id="ViewDesktopBeckhoffLogo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/Beckhoff_Logo.svg" data-tchmi-left="20" data-tchmi-top="20" data-tchmi-width="194" data-tchmi-height="57" data-tchmi-background-image-horizontal-alignment="Center" data-tchmi-background-image-vertical-alignment="Center">
+
+  </div>
+<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="57" data-tchmi-height-unit="px" data-tchmi-left="318" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.MAIN.iCounter|SubscriptionMode=Change|Interval=50%/s%" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="25">
+</div>
+<div id="TcHmiToggleButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="57" data-tchmi-height-unit="px" data-tchmi-left="428" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.MAIN.sText%/s%" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon-horizontal-alignment="Center" data-tchmi-icon-vertical-alignment="Center" data-tchmi-state-symbol="%s%PLC1.MAIN.bToggle%/s%">
+</div>
+<div id="TcHmiButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="57" data-tchmi-height-unit="px" data-tchmi-left="538" data-tchmi-left-unit="px" data-tchmi-text="Reset" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon-horizontal-alignment="Center" data-tchmi-icon-vertical-alignment="Center">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton.onMouseClick",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.MAIN.bReset%/s%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiEventGrid" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEventGrid" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-server-interval="1000" data-tchmi-show-menu-bar="true" data-tchmi-top="190" data-tchmi-top-unit="px" data-tchmi-width="780" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
+[
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiEventLogger"
+  },
+  {
+    "logic": "OR"
+  },
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiAlarm"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "columnName": "type"
+  },
+  {
+    "columnName": "severity"
+  },
+  {
+    "columnName": "timeAndDateRaised"
+  },
+  {
+    "columnName": "text",
+    "width": 1,
+    "widthUnit": "factor"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
+[
+  {
+    "name": "timeRaised",
+    "order": "Descending"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiButton_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Send Msg" data-tchmi-top="130" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon-horizontal-alignment="Center" data-tchmi-icon-vertical-alignment="Center" data-tchmi-state-symbol="%s%PLC1.Alarming.bSendMsg%/s%">
+</div>
+<div id="TcHmiLocalizationSelect" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLocalizationSelect" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="87" data-tchmi-top-unit="px" data-tchmi-width="264" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-localization-mapping" type="application/json">
+[
+  {
+    "code": "de",
+    "text": "German"
+  },
+  {
+    "code": "de-DE",
+    "text": "German (Germany)"
+  },
+  {
+    "code": "en",
+    "text": "English"
+  },
+  {
+    "code": "en-US",
+    "text": "English (United States)"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+</div>

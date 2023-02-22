@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="AlarmingEx" Id="{3f139806-cab8-4659-899b-e01e8e236e9e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM AlarmingEx
+VAR
+	bInit			: BOOL := TRUE;
+	bRaise			: BOOL;
+	bClear			: BOOL;
+	
+	fbAlm			: FB_TcAlarm;
+	fbSourceInfo	: FB_TcSourceInfo;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bInit THEN
+	bInit := FALSE;
+	
+	fbSourceInfo.Clear();
+	fbSourceInfo.sName := '%l%L_MyName%/l%';
+	
+	fbAlm.CreateEx(TC_EVENTS.MyEvents.MyFirstAlarm, TRUE, fbSourceInfo);
+	
+	fbAlm.ipArguments.Clear();
+	fbAlm.ipArguments.AddString('BMK');
+END_IF
+
+IF bRaise THEN
+	bRaise := FALSE;
+	fbAlm.Raise(0);
+END_IF
+
+IF bClear AND (fbAlm.eConfirmationState = TcEventConfirmationState.Confirmed) THEN
+	bClear := FALSE;
+	fbAlm.Clear(0, FALSE);
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="AlarmingEx">
+      <LineId Id="5" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="14" Count="7" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="31" Count="1" />
+      <LineId Id="30" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
