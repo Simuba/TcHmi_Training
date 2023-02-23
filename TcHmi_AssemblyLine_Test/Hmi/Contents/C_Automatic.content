@@ -1,0 +1,143 @@
+﻿<div id="C_Automatic" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-creator-viewport-height="480" data-tchmi-width-unit="px" data-tchmi-height-unit="px">
+
+
+
+
+<div id="UC_AutoFeeder" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="-10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/UC_Feeder.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="0" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-automaticmode="%s%PLC1.MAIN.fbFeeder1.stHmi.stAutomaticMode%/s%" data-tchmi-feederinfo="%s%PLC1.MAIN.fbFeeder1.stHmi.stFeederInfo|Interval=50%/s%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%i%SelectedFeeder%/i%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%i%SelectedFeeder%/i%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": 1.0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.CreateBinding",
+                "fnParams": [
+                  {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:framework#/definitions/Control",
+                    "symbolExpression": "%ctrl%UC_AutoFeeder%/ctrl%"
+                  },
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/ControlPropertyName",
+                    "value": "AutomaticMode"
+                  },
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%s%PLC1.MAIN.fbFeeder1.stHmi.stAutomaticMode|Interval=50%/s%"
+                  }
+                ],
+                "asyncWait": true
+              },
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.CreateBinding",
+                "fnParams": [
+                  {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:framework#/definitions/Control",
+                    "symbolExpression": "%ctrl%UC_AutoFeeder%/ctrl%"
+                  },
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/ControlPropertyName",
+                    "value": "FeederInfo"
+                  },
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%s%PLC1.MAIN.fbFeeder1.stHmi.stFeederInfo|Interval=50%/s%"
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.CreateBinding",
+                "fnParams": [
+                  {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:framework#/definitions/Control",
+                    "symbolExpression": "%ctrl%UC_AutoFeeder%/ctrl%"
+                  },
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/ControlPropertyName",
+                    "value": "AutomaticMode"
+                  },
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%s%PLC1.MAIN.fbFeeder2.stHmi.stAutomaticMode|Interval=50%/s%"
+                  }
+                ],
+                "asyncWait": true
+              },
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.CreateBinding",
+                "fnParams": [
+                  {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:framework#/definitions/Control",
+                    "symbolExpression": "%ctrl%UC_AutoFeeder%/ctrl%"
+                  },
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/ControlPropertyName",
+                    "value": "FeederInfo"
+                  },
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%s%PLC1.MAIN.fbFeeder2.stHmi.stFeederInfo|Interval=50%/s%"
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+
+</div>
+
+<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="78" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="Automatic" data-tchmi-top="230" data-tchmi-top-unit="px" data-tchmi-width="325" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="50" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+</div>
+</div>
