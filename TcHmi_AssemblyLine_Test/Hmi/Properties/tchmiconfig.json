@@ -89,8 +89,8 @@
   "trigger": [],
   "actionTemplates": [],
   "languages": {
-    "de": "Localization/de.localization",
-    "en": "Localization/en.localization"
+    "de-DE": "Localization/de-DE.localization",
+    "en-US": "Localization/en-US.localization"
   },
   "languageFallback": "",
   "disableLoadingOptimization": false,

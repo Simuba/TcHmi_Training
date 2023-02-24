@@ -138,6 +138,19 @@
     <Content Include="Desktop - Copy.view">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Localization\de-DE.localization">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\de-DE.tpl.localization">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\en-US.localization">
+      <SubType>Content</SubType>
+      <DependentUpon>Localization\en-US.tpl.localization</DependentUpon>
+    </Content>
+    <Content Include="Localization\en-US.tpl.localization">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Server\TcHmiLua\TcHmiLua.Config.default.json">
       <SubType>Content</SubType>
     </Content>
@@ -279,24 +292,6 @@
     <Content Include="Themes\Base-Dark\Images\Background.png">
       <SubType>Content</SubType>
       <Visible>true</Visible>
-    </Content>
-    <Content Include="Localization\de.tpl.localization">
-      <SubType>Content</SubType>
-      <Visible>true</Visible>
-    </Content>
-    <Content Include="Localization\en.tpl.localization">
-      <SubType>Content</SubType>
-      <Visible>true</Visible>
-    </Content>
-    <Content Include="Localization\de.localization">
-      <SubType>Content</SubType>
-      <Visible>true</Visible>
-      <DependentUpon>Localization\de.tpl.localization</DependentUpon>
-    </Content>
-    <Content Include="Localization\en.localization">
-      <SubType>Content</SubType>
-      <Visible>true</Visible>
-      <DependentUpon>Localization\en.tpl.localization</DependentUpon>
     </Content>
     <Content Include="KeyboardLayouts\German - compact.keyboard.json">
       <SubType>Content</SubType>

@@ -1,3 +1,46 @@
 ﻿{
+  "controlTypeValues": {},
+  "controlClassValues": {
+    "clickable_image": {
+      "attributes": {
+        "BoxShadow": [
+          {
+            "color": {
+              "color": "rgba(207, 198, 198, 1)"
+            },
+            "offsetX": 5.0,
+            "offsetXUnit": "px",
+            "offsetY": 5.0,
+            "offsetYUnit": "px",
+            "inset": false,
+            "blur": 0.0,
+            "blurUnit": "px",
+            "spread": 0.0,
+            "spreadUnit": "px"
+          }
+        ],
+        "BorderStyle": {
+          "left": "Solid",
+          "right": "Solid",
+          "top": "Solid",
+          "bottom": "Solid"
+        },
+        "BorderWidth": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2,
+          "leftUnit": "px",
+          "rightUnit": "px",
+          "topUnit": "px",
+          "bottomUnit": "px"
+        },
+        "BorderColor": {
+          "color": "rgba(207, 198, 198, 1)"
+        }
+      },
+      "themedResources": {}
+    }
+  },
   "$schema": "./../../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.758.8/runtimes/native1.12-tchmi/Schema/ThemeDescription.Schema.json"
 }
