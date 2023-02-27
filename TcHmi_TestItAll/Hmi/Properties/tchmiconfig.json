@@ -50,7 +50,14 @@
       "type": "Stylesheet"
     }
   ],
-  "userControls": [],
+  "userControls": [
+    {
+      "url": "UC/UserControl1.usercontrol"
+    },
+    {
+      "url": "UC/UserControl2.usercontrol"
+    }
+  ],
   "content": [],
   "views": [
     {

@@ -7,7 +7,9 @@ VAR
 	
 	bToggle		: BOOL;
 	bReset		: BOOL;
-	sText		: string; 
+	sText		: STRING; 
+	
+	stMyVar		: ST_MyType;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -27,7 +29,8 @@ ELSE
 END_IF
 
 Alarming();
-AlarmingEx();]]></ST>
+AlarmingEx();
+AlarmExtension();]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="11" Count="1" />
@@ -42,6 +45,7 @@ AlarmingEx();]]></ST>
       <LineId Id="28" Count="0" />
       <LineId Id="27" Count="0" />
       <LineId Id="2" Count="0" />
+      <LineId Id="39" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

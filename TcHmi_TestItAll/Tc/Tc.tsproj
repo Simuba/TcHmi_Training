@@ -29,10 +29,10 @@
 			</Hides>
 		</DataType>
 	</DataTypes>
-	<Project ProjectGUID="{DD34C6C3-3972-4F6B-8005-EFAEFA278A5B}" Target64Bit="true" ShowHideConfigurations="#x106">
+	<Project ProjectGUID="{DD34C6C3-3972-4F6B-8005-EFAEFA278A5B}" TargetNetId="192.168.10.17.1.1" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
-			<Settings MaxCpus="8" NonWinCpus="1">
-				<Cpu CpuId="7"/>
+			<Settings MaxCpus="2">
+				<Cpu CpuId="1"/>
 			</Settings>
 			<Tasks>
 				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
@@ -42,7 +42,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{09DF5873-04B7-4C83-8A5F-B10D4A704C78}" Name="Plc" PrjFilePath="Plc\Plc.plcproj" TmcFilePath="Plc\Plc.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{2C0BEE2A-D1DA-4BE5-9AEC-C75FAC734A54}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Plc\Plc.tmc" TmcHash="{EAC0515A-53AA-7F3E-A67C-7403DDFD8CED}">
 					<Name>Plc Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>

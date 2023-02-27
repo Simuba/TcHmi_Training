@@ -26,15 +26,64 @@
     "DEFAULTTIMEFORMATLOCALE": "client",
     "DEFAULTTIMEZONE": "client",
     "DEFAULTUSERGROUP": "__SystemUsers",
-    "DEFINITIONS": {},
+    "DEFINITIONS": {
+        "PLC1.E_STATE": {
+            "allOf": [
+                {
+                    "attributes": {
+                        "generate_implicit_init_function": "",
+                        "qualified_only": "",
+                        "strict": ""
+                    },
+                    "enum": [
+                        0,
+                        1
+                    ],
+                    "options": [
+                        {
+                            "label": "normal",
+                            "value": 0
+                        },
+                        {
+                            "label": "error",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
+                }
+            ]
+        },
+        "PLC1.ST_MyType": {
+            "properties": {
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bValue": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "iValue": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "sDescription": {
+                    "$ref": "tchmi:general#/definitions/STRING%2880%29"
+                },
+                "sText": {
+                    "$ref": "tchmi:general#/definitions/STRING%2880%29"
+                }
+            },
+            "type": "object"
+        }
+    },
     "DEFLATECOMPRESSIONLEVEL": 5,
     "DIAGNOSTICS_DOMAINS": [],
     "DISABLED_CONFIGURATION_HINTS": [],
     "DISCOVERY": 2,
     "ENABLE_SERVER_UPDATE": true,
     "ENDPOINTS": [
-        "http://127.0.0.1:13000",
-        "http://127.0.0.1:3000"
+        "http://127.0.0.1:13001",
+        "http://127.0.0.1:3001"
     ],
     "ETAGENABLED": true,
     "EXTENSIONS": {
@@ -44,6 +93,13 @@
             "PATH": "TcHmiAds\\",
             "PROCESSID": -1,
             "REQUIRED": true,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiAlarm": {
+            "ENABLED": true,
+            "NAME": "TcHmiAlarm",
+            "PATH": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.Alarm.19.0.0\\runtimes\\win-x64\\native\\",
+            "REQUIRED": false,
             "STARTUPTYPE": 1
         },
         "TcHmiEventLogger": {
@@ -2405,6 +2461,36 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.AlarmExtension.bAlarmi": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::AlarmExtension::bAlarmi",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.AlarmExtension.eState": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::AlarmExtension::eState",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.E_STATE"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.AlarmExtension.iAlarm": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::AlarmExtension::iAlarm",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.Alarming.bSendMsg": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -2453,6 +2539,16 @@
             "MAPPING": "PLC1::MAIN::sText",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/STRING%2880%29"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.stMyVar": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::stMyVar",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_MyType"
             },
             "USEMAPPING": true
         },
@@ -2768,6 +2864,115 @@
                     "description": "The requestId of a subscription.",
                     "type": "integer"
                 }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiAlarm.ClearLoggedEvents": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiAlarm",
+            "DYNAMIC": false,
+            "HIDDEN": true,
+            "MAPPING": "ClearLoggedEvents",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiAlarm.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiAlarm",
+            "DYNAMIC": false,
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiAlarm.Diagnostics": {
+            "ACCESS": 1,
+            "DOMAIN": "TcHmiAlarm",
+            "DYNAMIC": false,
+            "HIDDEN": true,
+            "MAPPING": "Diagnostics",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "activeAlarmsCount": {
+                        "propertyOrder": 7,
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "cachedAlarmsCount": {
+                        "propertyOrder": 5,
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "cachedInvalidAlarmsCount": {
+                        "propertyOrder": 6,
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "cachedMessagesCount": {
+                        "propertyOrder": 4,
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "database": {
+                        "properties": {
+                            "databaseSize": {
+                                "allOf": [
+                                    {
+                                        "$ref": "tchmi:general#/definitions/INT64"
+                                    },
+                                    {
+                                        "displayClass": "byte",
+                                        "propertyOrder": 1,
+                                        "readOnly": true
+                                    }
+                                ]
+                            },
+                            "numEntries": {
+                                "propertyOrder": 2,
+                                "readOnly": true,
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "databaseSize",
+                            "numEntries"
+                        ],
+                        "type": "object"
+                    },
+                    "importedEventsCount": {
+                        "propertyOrder": 1,
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "importedInvalidAlarmsCount": {
+                        "propertyOrder": 3,
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "importedMessagesCount": {
+                        "propertyOrder": 2,
+                        "readOnly": true,
+                        "type": "integer"
+                    }
+                },
+                "readOnly": true,
+                "required": [
+                    "importedEventsCount",
+                    "importedMessagesCount",
+                    "importedInvalidAlarmsCount",
+                    "cachedMessagesCount",
+                    "cachedAlarmsCount",
+                    "cachedInvalidAlarmsCount",
+                    "activeAlarmsCount",
+                    "database"
+                ],
+                "type": "object"
             },
             "USEMAPPING": true
         },
@@ -3462,13 +3667,18 @@
                 "LocalizeText": 3,
                 "Login": 3,
                 "Logout": 3,
+                "PLC1.AlarmExtension.bAlarmi": 3,
+                "PLC1.AlarmExtension.eState": 3,
+                "PLC1.AlarmExtension.iAlarm": 3,
                 "PLC1.Alarming.bSendMsg": 3,
                 "PLC1.MAIN.bReset": 3,
                 "PLC1.MAIN.bToggle": 3,
                 "PLC1.MAIN.iCounter": 3,
                 "PLC1.MAIN.sText": 3,
+                "PLC1.MAIN.stMyVar": 3,
                 "SetLocale": 3,
                 "SubscribeEvents": 3,
+                "TcHmiAlarm.Diagnostics": 1,
                 "TcHmiEventLogger.Diagnostics": 1,
                 "TcHmiEventLogger.ListEnabledTargetSystems": 3,
                 "TcHmiSqliteLogger.Diagnostics": 1,

@@ -4,13 +4,10 @@
 		<Text TxtId="Hello i am a message">
 			<Text LcId="1031"><![CDATA[Hallo ich bin eine Meldung]]></Text>
 		</Text>
-		<Text TxtId="Hello i am an alarrm">
-			<Text LcId="1031"><![CDATA[Hallo ich bin ein Alarm]]></Text>
-		</Text>
 	</Translations>
 	<DataTypes>
 		<DataType>
-			<Name GUID="{7B4A3041-F126-4F56-B4AD-57E114931A3D}" PersistentType="true">MyEvents</Name>
+			<Name GUID="{13167070-13B9-44EF-85D0-ED75B6FEA492}" PersistentType="true">MyEvents</Name>
 			<DisplayName TxtId=""><![CDATA[MyEvents_DisplayText]]></DisplayName>
 			<EventId>
 				<Name Id="1">MyFirstMsg</Name>
@@ -19,7 +16,7 @@
 			</EventId>
 			<EventId>
 				<Name Id="2">MyFirstAlarm</Name>
-				<DisplayName TxtId=""><![CDATA[Hello i am an alarrm]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[Hello i am an alarrm from {0}]]></DisplayName>
 				<Severity>Error</Severity>
 			</EventId>
 			<Hides>
@@ -28,10 +25,11 @@
 				<Hide GUID="{1398ECF3-6D59-44E0-AA88-BF10776D4C51}"/>
 				<Hide GUID="{94275A3A-2446-43EF-80F5-29E41C822D18}"/>
 				<Hide GUID="{8AEB4230-2514-4327-9887-F2DBB98EDF9D}"/>
+				<Hide GUID="{7B4A3041-F126-4F56-B4AD-57E114931A3D}"/>
 			</Hides>
 		</DataType>
 	</DataTypes>
-	<Project ProjectGUID="{DD34C6C3-3972-4F6B-8005-EFAEFA278A5B}" Target64Bit="true" ShowHideConfigurations="#x106">
+	<Project ProjectGUID="{DD34C6C3-3972-4F6B-8005-EFAEFA278A5B}" TargetNetId="192.168.10.17.1.1" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
 			<Settings MaxCpus="8" NonWinCpus="1">
 				<Cpu CpuId="7"/>
@@ -44,7 +42,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{09DF5873-04B7-4C83-8A5F-B10D4A704C78}" Name="Plc" PrjFilePath="Plc\Plc.plcproj" TmcFilePath="Plc\Plc.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{0462C40D-C8ED-F842-BED1-9040088BC909}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Plc\Plc.tmc" TmcHash="{EAC0515A-53AA-7F3E-A67C-7403DDFD8CED}">
 					<Name>Plc Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>

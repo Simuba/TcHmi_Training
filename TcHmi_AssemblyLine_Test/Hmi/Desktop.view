@@ -43,6 +43,12 @@
     "imageHeightUnit": "px"
   },
   {
+    "name": "%l%L_Historize%/l%",
+    "page": "Contents/C_Historizecontent.content",
+    "imageWidthUnit": "px",
+    "imageHeightUnit": "px"
+  },
+  {
     "name": "%l%L_Settings%/l%",
     "page": "Contents/C_Settings.content",
     "imageWidthUnit": "px",

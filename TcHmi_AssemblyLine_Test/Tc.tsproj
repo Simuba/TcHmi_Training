@@ -3044,7 +3044,7 @@ External Setpoint Generation:
 		</Motion>
 		<Plc>
 			<Project GUID="{BDD18F57-CECB-4AE4-9007-21BE1118B7B1}" Name="PLC1_AssemblyLine" PrjFilePath="PLC1_AssemblyLine\PLC1_AssemblyLine.plcproj" TmcFilePath="PLC1_AssemblyLine\PLC1_AssemblyLine.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC1_AssemblyLine\PLC1_AssemblyLine.tmc" TmcHash="{83084DCE-CAC5-523C-A822-0382F94B5DAF}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC1_AssemblyLine\PLC1_AssemblyLine.tmc" TmcHash="{7FE39D12-0609-37D6-C6C3-9E608E7DA0A2}">
 					<Name>PLC1_AssemblyLine Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">

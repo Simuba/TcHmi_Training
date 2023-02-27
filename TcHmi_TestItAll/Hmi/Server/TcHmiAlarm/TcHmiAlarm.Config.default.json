@@ -1,0 +1,65 @@
+{
+    "alarmSymbols": {
+        "PLC1.AlarmExtension.bAlarmi": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "valueReadError",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 0,
+                    "severity": 1
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.AlarmExtension.eState": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "valueReadError",
+                    "condition": [
+                        {
+                            "comparator": ">",
+                            "path": "",
+                            "value": 0.0
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 1,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.AlarmExtension.iAlarm": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "settingMatch",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": 20.0
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 2
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        }
+    },
+    "limitEventCount": 1000
+}

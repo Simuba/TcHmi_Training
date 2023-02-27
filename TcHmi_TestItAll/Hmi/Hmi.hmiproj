@@ -12,7 +12,7 @@
     <HmiTitle>Please enter your Title...</HmiTitle>
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
-    <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3001</HmiCommunicationServerPort>
     <HmiLogTcHmiServerMessages>false</HmiLogTcHmiServerMessages>
     <HmiLogDesignerModeComMessages>false</HmiLogDesignerModeComMessages>
     <HmiServerVersion>Latest</HmiServerVersion>
@@ -26,8 +26,8 @@
     <HmiViewportMaximumScale />
     <HmiViewportUserScaleable>Default</HmiViewportUserScaleable>
     <Name>Hmi</Name>
-    <HmiCommunicationRouterPort>10100</HmiCommunicationRouterPort>
-    <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
+    <HmiCommunicationRouterPort>10101</HmiCommunicationRouterPort>
+    <HmiCommunicationServerAuthPort>13001</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.758.8</HmiInitial>
     <HmiRecent>1.12.758.8</HmiRecent>
     <HmiServerNodeAdvancedView>False</HmiServerNodeAdvancedView>
@@ -109,6 +109,29 @@
   <Target Name="Clean" DependsOnTargets="$(CleanDependsOn)" />
   <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
   <ItemGroup>
+    <Content Include="Server\TcHmiAlarm\TcHmiAlarm.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiAlarm\TcHmiAlarm.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiAlarm\TcHmiAlarm.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UC\UserControl1.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UC\UserControl1.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UC\UserControl1.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="UC\UserControl2.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UC\UserControl2.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UC\UserControl2.usercontrol</DependentUpon>
+    </Content>
     <Folder Include="Fonts\" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />
@@ -117,6 +140,8 @@
     <Folder Include="Imports\Videos" />
     <Folder Include="KeyboardLayouts\" />
     <Folder Include="Localization" />
+    <Folder Include="Server\TcHmiAlarm" />
+    <Folder Include="UC" />
     <Folder Include="Server\TcHmiEventLogger" />
     <Folder Include="Themes" />
     <Folder Include="Themes\Base-Dark\Images\" />
